@@ -1,0 +1,22 @@
+#string:30:000
+{
+	[Style Inspect]
+	Hit this block to save your[BR]
+	game progress.[BR]
+	[Wait][Next]
+	When the game is over, your[BR]
+	status will return to what it[BR]
+	was the last time you saved,[BR]
+	and you can continue to play.[BR]
+	[Wait][Next]
+	When you find this block along [BR]
+	the way, remember to hit it[BR]
+	to save![Wait][End]
+}
+
+#string:30:001
+{
+	[Style Right]
+    Wario
+    [Wait][End]
+}

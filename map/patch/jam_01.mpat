@@ -1,0 +1,131 @@
+#define .NpcID:Goomba_00            00
+#define .NpcID:Goomba_01            01
+#define .NpcID:TwerkWario            02
+
+@ $Script_SetupMusic
+{
+    Call  SetMusicTrack ( 00000000 .Song:BB1 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+    Call  MakeNpcs	( .True $NpcGroupList_8024256C )
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList_8024256C
+{
+	00000001 $NpcGroup_BigWario 00000000
+	00000001 $NpcGroup_80241950 00010003
+	00000001 $NpcGroup_80241B40 00010003
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_80241950
+{
+	.NpcID:Goomba_00 $NpcSettings_80241840 ~Vec3f:NPC_Goomba_00 % 200 0 24
+	00002C00 00000000 00000000 00000000 0000005A
+	~Items:5:Mushroom:A ~HP:GenerousWhenLow:2 ~FP:GenerousWhenLow:2 ~NoCoinBonus
+	~Movement:NPC_Goomba_00
+	~AnimationTable:NPC_Goomba_00 % .Sprite:Goomba
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcGroup $NpcGroup_80241B40
+{
+	.NpcID:Goomba_01 $NpcSettings_80241840 ~Vec3f:NPC_Goomba_01 % 250 0 35
+	00002C00 00000000 00000000 00000000 0000005A
+	~Items:5:Mushroom:A ~HP:GenerousWhenLow:2 ~FP:GenerousWhenLow:2 ~NoCoinBonus
+	~Movement:NPC_Goomba_01
+	~AnimationTable:NPC_Goomba_01 % .Sprite:Goomba
+	00000000 00000000 00000000 00000000 % no tattle string
+}
+
+#new:NpcSettings $NpcSettings_80241840
+{
+	00000000 00140017 00000000 00000000 $Script_NpcAI_80241820 80077F70 00000000 8007809C
+	00000000 00000000 00050000
+}
+
+#new:Script $Script_NpcAI_80241820
+{
+    0:  Call  DoBasicAI	( $AISettings_802417F0 )
+   10:  Return
+   18:  End
+}
+
+#new:AISettings $AISettings_802417F0
+{
+    1.5 % move speed
+    30` % move time
+    30` % wait time
+  130.0 % alert radius
+    0.0
+    1`
+    2.5 % chase speed
+    180`
+    3`
+  150.0 % chase radius
+    0.0
+    1`
+}
+
+#new:NpcGroup $NpcGroup_BigWario
+{
+    .NpcID:TwerkWario   $NpcSettings_80247CE4 ~Vec3f:WARIO % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:WARIO
+	~AnimationTable:WARIO % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcSettings $NpcSettings_80247CE4
+{
+	00000000 00160018 00000000 00000000 $Script_NpcAI_80247CC4 00000000 00000000 00000000
+	00000000 00000000 006300
+}
+
+#new:Script $Script_NpcAI_80247CC4
+{
+    0:  Call  DoBasicAI ( $AISettings_80247C94 )
+   10:  Return
+   18:  End
+}
+
+#new:AISettings $AISettings_80247C94
+{
+    1.5 % move speed
+    60` % move time
+    30` % wait time
+    0.0 % alert radius
+    0.0
+    -1`
+    0.0 % chase speed
+    0`
+    0`
+    0.0 % chase radius
+    0.0
+    1`
+}
+
+#new:Script $Script_Init_WARIO
+{
+	0:  Call  BindNpcIdle       ( .Npc:Self $Script_Idle_WARIO )
+	0:  Call  BindNpcInteract       ( .Npc:Self $Script_Interact_WARIO )
+    28:  Return
+    30:  End
+}
+
+#new:Script $Script_Idle_WARIO
+{
+    Call SetNpcAnimation ( .NpcID:TwerkWario 00EA0002 )
+    Return
+    End
+}
+
+#new:Script $Script_Interact_WARIO
+{
+    Call SpeakToPlayer ( .NpcID:TwerkWario 00EA0004 00EA0004 00000000 00300001 )
+    Call GotoMapSpecial ("jam_02" 0 00000005 )
+    Return
+    End
+}

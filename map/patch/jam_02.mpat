@@ -1,0 +1,7 @@
+@ $Script_SetupMusic
+{
+    Call  SetMusicTrack ( 00000000 .Song:BB2 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}

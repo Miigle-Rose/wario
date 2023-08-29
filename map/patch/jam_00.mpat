@@ -1,0 +1,131 @@
+#define .NpcID:TwerkWario          00
+#define .NpcID:Wario1              01
+#define .NpcID:Wario2              02
+#define .NpcID:Wario4              03
+#define .NpcID:Wario5              04
+
+@ $Script_Main {
+	Set   *GB_WorldLocation  .Location:StarHaven
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Call  MakeNpcs  ( .True $NpcGroupList_NPCs )
+	Exec  $Script_SetupMusic
+	Exec  $Script_EnterMap
+    Return
+    End
+}
+
+@ $Script_CreateExitTriggers
+{
+	Bind  $Script_Map .Trigger:WallTouch ~Collider:Painting 00000001 00000000
+	Return
+	End
+}
+
+@ $Script_Map
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Exit0 )
+	Exec     ExitWalk
+    Call  PlaySound	( 000000DC )
+	Call  GotoMapSpecial   ( "jam_01" ~Entry:jam_01:Entry0 0000000C )
+	Wait  100`
+	Return
+	End
+}
+
+#new:NpcGroupList $NpcGroupList_NPCs
+{
+	00000001 $NpcGroup_BigWario 00000000
+    00000001 $NpcGroup_Wario1 00000000
+    00000001 $NpcGroup_Wario2 00000000
+    00000001 $NpcGroup_Wario4 00000000
+    00000001 $NpcGroup_Wario5 00000000
+	00000000 00000000 00000000
+}
+
+#new:NpcGroup $NpcGroup_BigWario
+{
+    .NpcID:TwerkWario   $NpcSettings_80247CE4 ~Vec3f:WARIO % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:WARIO
+	~AnimationTable:WARIO % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcGroup $NpcGroup_Wario1
+{
+    .NpcID:Wario1   $NpcSettings_80247CE4 ~Vec3f:Wario1 % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:Wario1
+	~AnimationTable:Wario1 % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcGroup $NpcGroup_Wario2
+{
+    .NpcID:Wario2   $NpcSettings_80247CE4 ~Vec3f:Wario2 % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:Wario2
+	~AnimationTable:Wario2 % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcGroup $NpcGroup_Wario4
+{
+    .NpcID:Wario1   $NpcSettings_80247CE4 ~Vec3f:Wario4 % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:WARIO
+	~AnimationTable:Wario4 % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcGroup $NpcGroup_Wario5
+{
+    .NpcID:Wario2   $NpcSettings_80247CE4 ~Vec3f:Wario5 % 100 0 -256
+	00002809 $Script_Init_WARIO 00000000 00000000 0000005A
+	~NoDrops
+	~Movement:WARIO
+	~AnimationTable:Wario5 % .Sprite:Gooma
+	00000000 00000000 00000000 001A0064 % She's my grandma, Gooma. I hope she lives forever! ...
+}
+
+#new:NpcSettings $NpcSettings_80247CE4
+{
+	00000000 00160018 00000000 00000000 $Script_NpcAI_80247CC4 00000000 00000000 00000000
+	00000000 00000000 006300
+}
+
+#new:Script $Script_NpcAI_80247CC4
+{
+    0:  Call  DoBasicAI ( $AISettings_80247C94 )
+   10:  Return
+   18:  End
+}
+
+#new:AISettings $AISettings_80247C94
+{
+    1.5 % move speed
+    60` % move time
+    30` % wait time
+    0.0 % alert radius
+    0.0
+    -1`
+    0.0 % chase speed
+    0`
+    0`
+    0.0 % chase radius
+    0.0
+    1`
+}
+#new:Script $Script_Init_WARIO
+{
+    28:  Return
+    30:  End
+}
