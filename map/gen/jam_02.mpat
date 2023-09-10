@@ -85,6 +85,17 @@
 	End
 }
 
+#new:Script $Script_CreditWarp
+{
+	SetGroup 0000001B
+	Call     UseExitHeading ( 60` ~Entry:Entry0 )
+	Exec     ExitWalk
+	Call  GotoMap   ( "jam_04" ~Entry:jam_04:Entry0 )
+	Wait  100`
+	Return
+	End
+}
+
 #new:Script $Script_Warp
 {
 	SetGroup 0000001B
@@ -98,6 +109,7 @@
 
 #new:Script $Script_CreateExitTriggers
 {
+	Bind  $Script_CreditWarp .Trigger:FloorAbove ~Collider:Teleporter 00000001 00000000
 	Bind  $Script_Warp .Trigger:FloorAbove ~Collider:Cannons 00000001 00000000
 	Return
 	End

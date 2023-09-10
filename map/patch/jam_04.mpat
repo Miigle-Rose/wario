@@ -1,0 +1,24 @@
+@ $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaRoad
+	Call  SetSpriteShading   ( .Shading:kmr_30 )
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+	Exec  $Script_SetupMusic
+	Exec  $Script_EnterMap
+    Wait 60`
+    Exec $Script_Credits
+	Return
+	End
+}
+
+#new:Script $Script_Credits
+{
+    Call ShowMessageAtScreenPos ( 00300002 160` 40` )
+	Wait  600`
+    Call GotoMapSpecial ( "jam_02" 0 00000003 )
+    Return
+    End
+}

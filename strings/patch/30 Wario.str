@@ -1,4 +1,4 @@
-#string:30:000
+#message:30:000
 {
 	[Style Inspect]
 	Hit this block to save your[BR]
@@ -14,9 +14,63 @@
 	to save![Wait][End]
 }
 
-#string:30:001
+#message:30:001
+{
+	[Style Right]Wario[Wait][End]
+}
+
+#message:30:002
 {
 	[Style Right]
-    Wario
-    [Wait][End]
+	[Speed delay=2 chars=1]
+	[Color:05][Shake][Size 24]-- CREDITS --[/fx]
+	[Pause 10]
+	[Next]
+	[Size 16]
+	[Color:02]Count Homer[Color:00] for Map 1[BR]
+	[Color:03]alecpike[Color:00] for Map 2[BR]
+	[Color:36]jefftastic[Color:00] for Inspiration[BR]
+	[BR]
+	[Pause 10]
+	[Next]
+	[Color:0A]VGMusic[Color:00] for MIDI[BR]
+	[Color:05]Nobuhito Sue[Color:00] for Wario[BR]
+	[Color:08]DenNya[Color:00] for The Ending Code[BR]
+	[BR]
+	[Pause 10]
+	[Next]
+	[Color:06]F.A.R.T.[Color:00] for[BR]
+	#praise-wario resources[BR]
+	(F.A.R.T. FOREVER!!!)[BR]
+	[Pause 10]
+	[BR]
+	[Next]
+	[Color:05]Clover[Color:00] for Star Rod[BR]
+	[Color:23]Star Haven[Color:00] for the Jam[BR]
+	[Pause 5]
+	[Size 12](and for being cool and awesome)[BR]
+	[Size 16][BR]
+	[Pause 10]
+	[Next]
+	[Rainbow]And you for playing![/fx][BR]
+	[Pause 5]
+	[Next]
+	The majority of this mod[BR]
+	was made in under 8[BR]
+	hours! (Could you tell?)[BR]
+	[Pause 5]
+	[Next]
+	(This map was made 30 mins[BR]
+	before the deadline,[BR]
+	even![BR]
+	[Pause 10]
+	[Next]
+	I hope you're enjoying the[BR]
+	Wario Cosmic Horror[BR]
+	Experience![BR]
+	[Pause 10]
+	[Next]
+	There's still a little left,[BR]
+	so keep looking![BR]
+	[Wait][End]
 }

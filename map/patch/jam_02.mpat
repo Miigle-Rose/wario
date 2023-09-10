@@ -5,3 +5,11 @@
 	Return
 	End
 }
+
+@ $Script_CreditWarp
+{
+	Call  GotoMapSpecial   ( "jam_04" 0 00000003 )
+	Wait  100`
+	Return
+	End
+}

@@ -573,6 +573,7 @@
 		<Map name="jam_01" nickname="Bob-Omb_Battlefield"/>
 		<Map name="jam_02" nickname="Evil Battlefield"/>
 		<Map name="jam_03" nickname="The Void"/>
+		<Map name="jam_04" nickname="The Credits"/>
 	</Area>
 	<Resource name="mac_tex" compressed="false"/>
 	<Resource name="tik_tex" compressed="false"/>

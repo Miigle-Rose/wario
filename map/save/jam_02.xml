@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map name="jam_02" author="unnamed" background="obk_bg" textures="bbb_tex">
 	<Editor>
-		<Camera pos="927.152954,207.632935,10.503906" pitch="10.000000" yaw="-128.367493"/>
+		<Camera pos="1.656743,383.447205,967.254700" pitch="9.999996" yaw="0.000000"/>
 		<Camera pos="84.000000,65536.000000,-71.000000"/>
 		<Camera pos="65536.000000,811.148499,-320.199280"/>
-		<Camera pos="72.603806,213.700577,65536.000000"/>
+		<Camera pos="-808.094482,990.061584,65536.000000"/>
 	</Editor>
 	<ModelTree>
 		<Node name="Root" id="17">
@@ -51,7 +51,7 @@
 			<Node name="FloorCollider" id="D"/>
 			<Node name="FloorCollider" id="E"/>
 			<Node name="MeshCollider" id="F"/>
-			<Node name="MeshCollider" id="10"/>
+			<Node name="Teleporter" id="10"/>
 			<Node name="MeshCollider" id="11"/>
 			<Node name="MeshCollider" id="12"/>
 			<Node name="MeshCollider" id="13"/>
@@ -5166,7 +5166,7 @@
 			</HitMesh>
 		</Collider>
 		<Collider ver="0" flags="0">
-			<MapObject name="MeshCollider" id="10" hidden="true"/>
+			<MapObject name="Teleporter" id="10" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -9171,6 +9171,7 @@
 		</TexPanners>
 		<Generators>
 			<Entrance name="In" type="Teleport" hasCallback="false" entry="Entry0"/>
+			<Exit name="CreditWarp" type="Walk" hasCallback="false" entry="Entry0" destMap="jam_04" destEntry="Entry0" trigger="Teleporter"/>
 			<Exit name="Warp" type="Walk" hasCallback="false" entry="Entry0" destMap="jam_03" destEntry="Entry0" trigger="Cannons"/>
 		</Generators>
 		<Camera vfov="25" near="16" far="4096" bgcolor="0,0,0" leadsPlayer="false"/>
